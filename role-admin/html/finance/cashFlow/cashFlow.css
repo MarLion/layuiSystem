@@ -1,0 +1,17 @@
+.cash-flow-condition-item{display: flex;flex-direction: row;justify-content: flex-start;}
+.chart-title{font-weight:400;color:rgba(51,51,51,1);}
+#mainTable table{width: 100%;border: 1px solid #EAEAEA;}
+#mainTable table th{color: #333333;font-size: 16px;background-color: #f7f7f7;}
+#mainTable table td{color: #666666;font-size: 14px;}
+#mainTable table th,#mainTable table td{text-align: center;height: 48px;line-height: 48px;}
+#mainTable table td:first-child>span{display: inline-block;width: 10px;height: 10px;margin-right: 5px;}
+#mainTable table tr:hover{cursor: pointer;background-color: #F0F0F0;}
+.sq-1{background-color: #0060AA;}
+.sq-2{background-color: #019DD5;}
+.sq-3{background-color: #019A4D;}
+.sq-4{background-color: #E05600;}
+.sq-5{background-color: #E28700;}
+.sq-6{background-color: #9A8301;}
+.sq-7{background-color: #00B83F;}
+.sq-8{background-color: #018D9A;}
+.sq-9{background-color: #E03439;}

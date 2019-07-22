@@ -1,0 +1,252 @@
+@charset "utf-8";
+/*样式重写*/
+/*左侧栏导航样式*/
+.panel-header.accordion-header.accordion-header-selected {
+    background-color: #fafafa!important;
+}
+.panel-header.accordion-header.accordion-header-selected .panel-title{
+    color:#0099cc;
+}
+.menulist .selected {
+    background: #0099cc;
+    border-left: 4px #f24a39 solid;
+    border-bottom: none;
+    border-top: none;
+}
+.menulist li.selected  a{
+    color:#fff;
+}
+.menulist li a:hover {
+    background: #0099cc;
+    border-left: 0 #f24a39 solid;
+    border-bottom: none;
+    border-top: none;
+    color:#fff;
+}
+.menulist li a {
+    color: #276560;
+    text-decoration: none;
+    display: block;
+    padding-left: 30px;
+    border: none;
+    height: 35px;
+    line-height: 35px;
+}
+
+/*内容区顶部tab*/
+.tabs-wrap {
+    padding: 0 0 0 5px;
+}
+.tabs{
+    padding: 5px 5px 0 0;
+}
+.tabs li.tabs-selected {
+    border: 1px solid #d8e1e6;
+    border-bottom: 1px solid #fff;
+    border-top: 2px solid #0099cc;
+}
+.tabs li {
+    float: left;
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: -1px;
+    padding: 0;
+    position: relative;
+    border: 1px solid #d8e1e6;
+    -moz-border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+     border-radius: 4px 4px 0 0;
+}
+.tabs-with-icon {
+    padding-left: 18px;
+    font-weight: normal!important;
+}
+.tabs li.tabs-selected a.tabs-inner {
+    color: #0099cc;
+    font-weight: normal!important;
+    outline: none;
+}
+.tabs li a.tabs-inner {
+    display: inline-block;
+    text-decoration: none;
+    color: #666;
+    margin: 0;
+    padding: 0 20px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    white-space: nowrap;
+    font-weight: normal;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+}
+/*按钮样式修改*/
+a.l-btn-plain {
+    padding-right: 5px;
+    _border: 0 solid #efefef;
+    _padding: 1px 6px 1px 1px;
+}
+a.l-btn {
+    color: #444;
+    background-image: none;
+    border:1px solid #ccc;
+    border-radius: 2px;
+    font-size: 12px;
+    text-decoration: none;
+    display: inline-block;
+    zoom: 1;
+    height:25px;
+    /* padding-right:8px; */
+    margin:0 3px;
+    cursor: pointer;
+    outline: none;
+}
+a.l-btn:hover {
+    background-image: none;
+    background-color: rgb(0, 153, 204);
+    color:#fff;
+}
+/*窗口内容样式修改*/
+.dir td {
+    border-right:0!important;
+    /*border-bottom: #C8B9AE solid 1px;*/
+    padding: 5px 5px 3px;
+    vertical-align: top;
+}
+.window {
+    font-size: 12px;
+    position: absolute;
+    overflow: hidden;
+    padding: 0;
+    border: 1px solid #99BBE8;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:5px;
+}
+.window .window-header {
+    background: transparent;
+    padding: 0;
+}
+.window .panel-title {
+    padding-left: 10px;
+    color: #0099cc;
+    font-family: monospace;
+}
+.window .window-header .panel-tool {
+    top: 10px;
+    right: 15px;
+}
+.window .window-body {
+    background: #fff;
+    border: 0;
+    border-top-width: 0px;
+}
+.panel-title {
+    color: #0099cc;
+    font-family: monospace;
+}
+#main-window form table td{
+    padding: 3px 0;
+}
+.combo-text {
+    font-size: 12px;
+    border: 0;
+    //line-height: 18px;
+    //height: 18px;
+    padding: 0;
+    //_height: 18px;
+    //_line-height: 18px;
+}
+.combo-text:focus{
+    outline: none;
+    border-color:transparent!important;
+}
+#main-dialog form table td{
+    padding-bottom: 8px;
+}
+#table-window form table td{
+    padding-bottom: 8px;
+}
+#main-window form table td{
+    padding-bottom: 8px;
+}
+.toolbar table td a{
+    margin-top: 5px;
+}
+
+
+/* 2018/11/22 */
+.layui-upload-list{
+    overflow: hidden;
+    zoom: 1;
+}
+.layui-upload-list .layui-upload-imgbox{
+    float: left;
+    position: relative;
+    margin-right: 5px;
+    margin-bottom: 5px; 
+}
+.layui-upload-list .layui-upload-imgbox img{
+    margin: 0 !important;
+}
+.layui-upload-list .layui-upload-imgbox .close-upimg{
+    position: absolute !important;
+    top: 5px !important;
+    right: 5px !important;
+    left: auto !important;
+    cursor: pointer;
+}
+.datagrid-body .datagrid-cell, .datagrid-footer .datagrid-cell,.datagrid-header .datagrid-cell{
+    white-space: normal;
+}
+.datagrid-body td, .datagrid-footer td,.datagrid-header td{
+    padding: 10px 5px;
+}
+/*a.l-btn .l-btn-focus{
+    outline: 0 !important;
+}
+
+ table.dir{
+    width: 100%;
+}
+.top-2{
+    position: relative;
+    top: -2px;
+}
+.toolbar .combo{
+    height: 20px;
+    font-size: 0;
+    position: relative;
+    top: 1.5px;
+}
+.toolbar .combo input.combo-text.validatebox-text{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 20px;
+}
+.toolbar .combo span{
+    display: inline-block;
+    height: 20px;
+}
+.toolbar .combo span .combo-arrow{
+    background-position: 3px 4px;
+}
+.layui-form .layui-form-label{
+    width: auto;
+    word-break: keep-all;
+}
+.layui-form-checkbox span,
+.layui-form-checkbox:hover span{
+    background-color: #a5a5a5 !important;
+}
+.layui-form-checked span, 
+.layui-form-checked:hover span{
+    background-color: #5FB878 !important;
+}
+.layui-form-item.adds-select .layui-input-inline{
+    width: 147px;
+    margin-left: 10px;
+    margin-right: 0;
+} */

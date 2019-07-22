@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>玄乐管理后台</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="static/plugin/layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="static/css/common.css" media="all"/>
+	<link rel="stylesheet" href="static/css/index.css" media="all"/>
+	<script src="//at.alicdn.com/t/font_1236076_tzva66hlp3.js"></script>
+</head>
+<body class="layui-layout-body">
+	<div class="layui-layout layui-layout-admin" >
+		<div class="layui-header">
+			<div class="layui-logo cust-logo">
+				<p class="cust-p"><img src="static/images/logo.png" class="logo"/><img src="static/images/name.png" style="width: 154px;height: 26px;margin-left: 16px;margin-top: 7px;"/></p>
+				<img src="static/images/firstLevel.png" class="firstLevel" id="levelImg"/>
+			</div>
+			<div class="layui-layout-left fs16 fw" id="layTitle"></div>
+			<div class="layui-layout-right fs14 ">
+				<p style="cursor: pointer;" id="refresh">
+					<img src="static/images/clear.png"/>
+					<span>清除缓存</span>
+				</p>
+				<p class="ml30" style="cursor: pointer;" id="logout">
+					<img src="static/images/logout.png"/>
+					<span>安全退出</span>
+				</p>
+				<p class="ml30">
+					<img src="static/images/headImg.png" style="width: 40px;height: 40px;"/>
+					<span id="userName"></span>
+				</p>
+			</div>
+			<div class="layui-first-level" id="levelOut">
+				<ul id="levelIn" class="layui-first-ul"></ul>
+			</div>
+		</div>
+		<div class="layui-side layui-bg-black box" id="layuiNav">
+			<div class="nav-title fs18" style="font-weight: 400;" id="bigTitle"></div>
+			<div class="layui-side-scroll" id="admin-navbar-side" lay-filter="side"></div>
+		</div>
+		</div>
+		<div class="layui-body" style="" id="admin-body">
+			<div class="layui-tab admin-nav-card layui-tab-brief" lay-filter="admin-tab">
+				<ul class="layui-tab-title" style="display: none;">
+					<li class="layui-this">
+						<i class="fa fa-dashboard" aria-hidden="true"></i>
+						<cite>主页</cite>
+					</li>
+				</ul>
+				<div class="layui-tab-content" style="height:100%;padding:0;">
+					<div class="layui-tab-item layui-show" style="height: 100%;">
+						<iframe src="home.html"></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="static/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="static/plugin/setToken.js"></script>
+	<script type="text/javascript" src="static/plugin/layui/layui.js"></script>
+	<script type="text/javascript" src="datas/nav.js"></script>
+	<!--<script src="static/js/index.js"></script>-->
+	<script src="static/js/config.js"></script>
+	<script>
+        layui.config({
+            version: true //一般用于更新模块缓存，默认不开启。设为true即让浏览器不缓存。也可以设为一个固定的值，如：201610
+            , debug: false //用于开启调试模式，默认false，如果设为true，则JS模块的节点会保留在页面
+            , base: 'static/js/' //设定扩展的Layui模块的所在目录，一般用于外部模块扩展
+        }).use(['layer','jquery','element','base','navbar','tab'], function() {
+            var $ = layui.jquery,
+                element = layui.element,
+                base=layui.base,
+                layer = layui.layer,
+                navbar = layui.navbar();
+            tab = layui.tab({
+                elem: '.admin-nav-card', //设置选项卡容器
+                contextMenu: true,
+                onSwitch: function (data) {
+                },
+                closeBefore: function (obj) { //tab 关闭之前触发的事件
+
+                    return true;
+                }
+            });
+            base._ajax({
+                url:base.apiUrl() + '/menu/rootMenu',
+                data:{
+                    userId:window.sessionStorage.getItem('userId')
+                },
+                headers:{
+                    'xxl_sso_sessionid':window.sessionStorage.getItem('sessionid')
+				},
+                success:function (res) {
+                    //console.log(res);
+                    var _html = '';
+                    for (var i = 0;i < res.length;i++) {
+                        _html += '<li data-id="'+res[i].id+'"><img src="'+res[i].icon+'"/><span style="margin-left: 95px;">'+res[i].menuName+'</span></li>'
+                    }
+                    $("#levelIn").html(_html);
+                },
+                error:function (error) {
+                    console.log(error);
+                }
+            });
+            var isShow = true;
+            $("#levelImg").on('click',function () {
+                if ($("#layuiNav").css('display') == 'none'){
+                    return;
+				}
+                isShow = !isShow;
+                if (isShow) {
+                    // $(".layui-tab-title").show().css({left:'318px'});
+                    $("#levelOut").stop().animate({
+                        height:window.innerHeight-80+'px'
+                    },200,function () {})
+                } else {
+                    $("#levelOut").stop().animate({
+                        height:'0'
+                    },200,function () {
+
+                    })
+                }
+            });
+            $("#levelIn").on('click','li',function () {
+                var id = this.dataset.id;
+                isShow = !isShow;
+                $("#levelOut").stop().animate({
+                    height:'0'
+                },200,function () {
+				});
+                $("#layuiNav").show();
+				$(".layui-tab-title").show();
+                $(".layui-tab-content").css({marginTop:'56px'});
+                // $('.layui-body').css({left:'318px'});
+                navbar.set({
+                    spreadOne: true,
+                    elem: '#admin-navbar-side',
+                    cached: false,
+                    url:base.apiUrl()+"/sys/getUserMenuList",
+					params:{
+                        userId:window.sessionStorage.getItem('userId'),
+                        menuId:id
+                    }
+                    // data: navs
+                });
+                navbar.render();
+                $('.layui-nav-more').hide();
+                navbar.on('click(side)', function (data) {
+                    tab.tabAdd(data.field);
+                });
+            });
+        });
+	</script>
+	<script>
+        $(function () {
+            $("#userName").html(window.sessionStorage.getItem('userName'));
+            $("#layTitle").html('您好'+window.sessionStorage.getItem('userName')+'，欢迎使用玄乐后台管理');
+            $("#levelOut").css({
+                height:window.innerHeight-80+'px'
+            });
+            $(".layui-tab-title").css({left:'318px',width:window.innerWidth-318+'px'});
+            $('.layui-body').css({left:'318px'});
+            $("#refresh").on('click',function () {
+				window.location.reload();
+            });
+            $("#logout").on('click',function () {
+                $.ajax({
+                    url:apiUrl + '/open/app/logout',
+                    type:'post',
+                    data:{sessionId:window.sessionStorage.getItem('sessionid')},
+                    success:function (res) {
+                        if (res.code == 200) {
+                            setCookie("depts", "", -1);
+                            setCookie("roleLevel", "", -1);
+                            window.location.href = 'login.html';
+                            window.sessionStorage.clear();
+                        }
+                    }
+                })
+            })
+        })
+	</script>
+</body>
+
+</html>
+

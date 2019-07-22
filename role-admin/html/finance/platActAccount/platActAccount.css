@@ -1,0 +1,11 @@
+.plat-act-condition-item{display: flex;flex-direction: row;justify-content: flex-start;}
+.plat-act-condition-s{display: flex;flex-direction: row;justify-content: space-between;}
+/*.finance-list table{width: 80%;text-align: center;border: 1px solid #EAEAEA;}*/
+/*.finance-list table td{height: 40px;line-height: 40px;}*/
+/*.finance-list table th{text-align: center;height: 30px;line-height: 30px;}*/
+/*.finance-list table tr:first-child{background-color: #F2F2F2;}*/
+.finance-list .list-name{height: 48px;line-height: 48px;background-color: #EBEBEB;text-align: center;font-size: 16px;color: #333333;font-weight: bold;}
+.finance-list table{width: 100%;border: 1px solid #EAEAEA;}
+.finance-list table td, .finance-list table th{height: 40px;line-height: 40px;text-align: center;}
+.cell-bg{background-color: #f2f2f2;}
+.cell-bg-t{background-color: #f7f7f7;}

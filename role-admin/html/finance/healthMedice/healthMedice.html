@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <title>健康医疗</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../../../static/css/common.css" media="all"/>
+    <link rel="stylesheet" href="../../../static/plugin/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="../public/public.css"/>
+    <link rel="stylesheet" href="healthMedice.css"/>
+</head>
+<body>
+<div class="finance-container">
+    <div class="finance-bread fs16">
+        <span>财务管理</span>
+        <span class="ml13">＞</span>
+        <span class="ml13">健康医疗</span>
+    </div>
+    <div class="finance-condition">
+        <form class="layui-form form1">
+            <div class="health-medice-condition-item">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">所在大区：</label>
+                    <div class="layui-input-inline layui-form" lay-filter="district-div">
+                        <select class="layui-select" id="shopArea" lay-filter="shop-area">
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item" style="margin-left: 20px;">
+                    <label class="layui-form-label">所在区域：</label>
+                    <div class="layui-input-inline layui-form" lay-filter="company-div">
+                        <select class="layui-select" id="companySelect" lay-filter="company-select">
+                        </select>
+                    </div>
+                    <div class="layui-input-inline layui-form" lay-filter="area-div">
+                        <select class="layui-select" id="areaSelect" lay-filter="area-select">
+                        </select>
+                    </div>
+                    <div class="layui-input-inline layui-form" lay-filter="shop-div">
+                        <select class="layui-select" id="shopSelect" lay-filter="shop-select">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="health-medice-condition-item">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户账号：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="loginName" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item" style="margin-left: 20px;">
+                    <label class="layui-form-label">下单时间：</label>
+                    <div class="layui-input-inline" style="width: 242px;">
+                        <input type="text" class="layui-input" id="startPayTime">
+                    </div>
+                    <div class="layui-input-inline" style="width: 16px;margin: 0 15px 0 5px;line-height: 32px;text-align: center">一</div>
+                    <div class="layui-input-inline" style="width: 242px;">
+                        <input type="text" class="layui-input" id="endPayTime">
+                    </div>
+                </div>
+                <label class="layui-form-label" style="margin-left: 20px">所属医院：</label>
+                <div class="layui-form-item layui-form-select downpanel-hospital" style="width: 250px;">
+                    <div class="layui-select-title">
+                        <input type="text" placeholder="可多选" value="" id="hospitalIds" name="hospitalIds"
+                               class="layui-input layui-unselect orderTypes-hospital" readonly>
+                        <i class="layui-edge" style="margin-right: 10px;"></i>
+                    </div>
+                    <dl class="layui-anim layui-anim-upbit multSelects1-hospital" id="hospitalSelect">
+                    </dl>
+                </div>
+            </div>
+            <div class="health-medice-condition-item">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户姓名：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="userName" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item" style="margin-left: 20px;">
+                    <label class="layui-form-label">送检时间：</label>
+                    <div class="layui-input-inline" style="width: 242px;">
+                        <input type="text" class="layui-input" id="startSendTime">
+                    </div>
+                    <div class="layui-input-inline" style="width: 16px;margin: 0 15px 0 5px;line-height: 32px;text-align: center">一</div>
+                    <div class="layui-input-inline" style="width: 242px;">
+                        <input type="text" class="layui-input" id="endSendTime">
+                    </div>
+                </div>
+                <label class="layui-form-label" style="margin-left: 20px">套餐名称：</label>
+                <div class="layui-form-item layui-form-select downpanel-name" style="width: 250px;">
+                    <div class="layui-select-title">
+                        <input type="text" placeholder="可多选" value="" id="setName" name="packageName" class="layui-input layui-unselect orderTypes-name" readonly>
+                        <i class="layui-edge" style="margin-right: 10px;"></i>
+                    </div>
+                    <dl class="layui-anim layui-anim-upbit multSelects1-name" id="packageSelect">
+                    </dl>
+                </div>
+            </div>
+            <div class="health-medice-condition-item">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">订单编号：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="orderNo" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <label class="layui-form-label" style="margin-left: 20px">订单类型：</label>
+                <div class="layui-form-item layui-form-select downpanel-order-type" style="width: 250px;">
+                    <div class="layui-select-title">
+                        <input type="text" placeholder="可多选" value="" id="orderType" name="orderType" class="layui-input layui-unselect orderTypes-order-type" readonly>
+                        <i class="layui-edge" style="margin-right: 10px;"></i>
+                    </div>
+                    <dl class="layui-anim layui-anim-upbit multSelects1-order-type">
+                        <dd><input  type="checkbox" name="typesOrderType" title="玄乐币" value="0"  lay-skin="primary" ></dd>
+                        <dd><input  type="checkbox" name="typesOrderType" title="医保卡" value="1"  lay-skin="primary" ></dd>
+                        <dd><input  type="checkbox" name="typesOrderType" title="购买赠送" value="2"  lay-skin="primary" ></dd>
+                    </dl>
+                </div>
+                <label class="layui-form-label" style="margin-left: 20px">订单状态：</label>
+                <div class="layui-form-item layui-form-select downpanel-order-status" style="width: 250px;">
+                    <div class="layui-select-title">
+                        <input type="text" placeholder="可多选" value="" id="orderStatus" name="orderStatus" class="layui-input layui-unselect orderTypes-order-status" readonly>
+                        <i class="layui-edge" style="margin-right: 10px;"></i>
+                    </div>
+                    <dl class="layui-anim layui-anim-upbit multSelects1-order-status">
+                        <dd><input  type="checkbox" name="typesOrderStatus" title="已支付" value="0"  lay-skin="primary" ></dd>
+                        <dd><input  type="checkbox" name="typesOrderStatus" title="已消费" value="1"  lay-skin="primary" ></dd>
+                        <dd><input  type="checkbox" name="typesOrderStatus" title="已退款" value="2"  lay-skin="primary" ></dd>
+                    </dl>
+                </div>
+                <div class="layui-form-item" style="margin-left: 20px">
+                    <button type="button" class="layui-btn layui-btn-normal" id="checkhm">查询</button>
+                    <button type="button" class="layui-btn layui-btn-primary" id="resethm">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="finance-list mt20">
+        <div>
+            <button type="button" class="layui-btn layui-btn-normal" id="healthOrderToEcel">批量导出</button>
+            <button type="button" class="layui-btn layui-btn-normal" id="healthOwnShopToEcel">门店导出</button>
+        </div>
+        <table id="hm" lay-filter="vipModel" class="mt20"></table>
+    </div>
+</div>
+<script src="../../../static/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../../static/plugin/setToken.js"></script>
+<script type="text/javascript" src="../../../static/plugin/layui/layui.js"></script>
+<script src="../../../static/js/config.js"></script>
+<script src="healthMedice.js"></script>
+</body>
+</html>

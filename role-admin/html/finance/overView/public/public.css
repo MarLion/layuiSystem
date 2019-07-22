@@ -1,0 +1,34 @@
+.finance-container{background-color: #f0f0f0;padding: 20px 30px 80px 30px;}
+.finance-bread span:first-child{font-weight: bold;color:rgba(51,51,51,1);}
+.finance-bread span:last-child{font-weight: 400;color:rgba(40,40,52,1);}
+.finance-condition{background-color: #ffffff;margin-top: 22px;padding: 30px;border-radius: 4px;}
+.finance-list{background-color: #ffffff;padding: 24px 30px 30px 30px;border-radius: 4px;}
+.col-g{color:#19BB4C;}
+.col-r{color: #FF1B1B;}
+.col-b{color: #3AA1FF;}
+/*flex基本参数*/
+.flex-row{display: flex;flex-direction: row;justify-content: space-between;}
+.flex-col{display: flex;flex-direction: column;}
+.justify-start{justify-content: flex-start;}
+.justify-end{justify-content: flex-end;}
+.justify-between{justify-content: space-between;}
+.justify-around{justify-content: space-around;}
+/*二级页面总览表*/
+.second-over-table table{width: 100%;border-color: #ffffff;}
+.second-over-table table th{height: 30px;line-height: 30px;background-color:#6495FA;color: #ffffff;text-align: center;}
+.second-over-table table td{text-align: center;padding: 10px 0;border-color: #E6E6E6;}
+.second-thirty-sale .sale-icon{display: inline-block;width: 4px;height: 14px;background-color: #6795f5;}
+.thirty-contain{width: 100%;overflow-x: scroll;}
+.swiper-wrapper p:first-child{background-color: #6495FA;color: #ffffff;}
+.swiper-wrapper p{padding: 10px 20px;}
+.second-thirty-sale .swiper-container .swiper-slide{width: auto!important;}
+.second-thirty-sale .swiper-container .slide-container{border: 1px solid #6495FA;}
+.second-thirty-sale .swiper-container .slide-container:hover{cursor: pointer;}
+/*修改layui tab样式*/
+.layui-tab-content{padding: 0;}
+.layui-tab-title li{height: 56px;line-height: 56px;border-top: 2px solid rgba(247,247,247,1);}
+.layui-tab-title .layui-this{color: rgba(30,135,240,1);border-top: 2px solid rgba(30,135,240,1);}
+.layui-tab-card>.layui-tab-title{background:rgba(247,247,247,1);}
+.layui-tab-title{height: 58px;border-bottom: none;}
+.layui-tab-card{border: none;box-shadow:none;}
+.layui-tab-title .layui-this:after{height: 30px;top:0;bottom: 0;margin: auto;}

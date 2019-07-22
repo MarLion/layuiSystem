@@ -1,0 +1,33 @@
+layui.config({
+    version: true //一般用于更新模块缓存，默认不开启。设为true即让浏览器不缓存。也可以设为一个固定的值，如：201610
+    , debug: false //用于开启调试模式，默认false，如果设为true，则JS模块的节点会保留在页面
+    , base: '../../../static/js/' //设定扩展的Layui模块的所在目录，一般用于外部模块扩展
+}).use(['jquery','form','laydate','base','table','element'],function () {
+    var $ = layui.jquery;
+    var form = layui.form;
+    var laydate = layui.laydate,
+        base = layui.base,
+        table= layui.table,
+        element = layui.element;
+    $('.xuanle-tab iframe').css({height:window.innerHeight-220 + 'px'});
+    var src = [
+        'regularProduct/regularProduct.html',
+        'xuanleOne/xuanleOne.html',
+        'xuanleEight/xuanleEight.html',
+        'xuanleVip/xuanleVip.html',
+        'xuanleOneBonus/xuanleOneBonus.html',
+        'xuanleVipBonus/xuanleVipBonus.html',
+        'xuanleOneUserBonus/xuanleOneBonus.html',
+        'xuanleOneReferrerBonus/xuanleOneBonus.html'
+    ];
+    var isTab = [true,false,false,false,false,false,false,false];
+    element.on('tab(xuanle-manage)',function (data) {
+        if (isTab[data.index]) return;
+        var s;
+        s = !isTab[data.index] ? src[data.index] : '';
+        $('.xuanle-tab iframe').each(function (index,item) {
+            if (index == data.index) $(this).attr('src',s);
+        });
+        isTab[data.index] = true;
+    })
+});

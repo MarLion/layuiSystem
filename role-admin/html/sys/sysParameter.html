@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../static/plugin/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="../../static/css/center-rewrite.css"/>
+    <style>
+        .layui-input-block {
+            width: 300px;
+        }
+        .layui-form-checkbox span {
+            color: #3C3F41;
+        }
+        em{
+            color: red;
+            font-size: 15px;
+            position: relative;
+            top: 2px;
+        }
+        /*设置文字居中显示*/
+        .layui-table-header tr th div{
+            text-align: center;
+        }
+        td{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div id="main-dialog" title="系统设置" style="display: none;">
+    <form class="layui-form form1" action="" lay-filter="example" id="inputForm">
+        <input type="hidden" id="id" name="id"  autocomplete="off"  class="layui-input">
+        <div class="layui-form-item" style="margin-top: 10px">
+            <label class="layui-form-label"><em>*</em>参数名:</label>
+            <div class="layui-input-block">
+                <input type="text" id="parameter_key" name="parameterKey" lay-verify="required" autocomplete="off" maxlength="20"  class="layui-input parameterKey" >
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label"><em>*</em>参数值:</label>
+            <div class="layui-input-block">
+                <input type="text"  id ="parameter_value" name="parameterValue" lay-verify="required" autocomplete="off" maxlength="20"   class="layui-input parameterValue">
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label"><em>*</em>描述：</label>
+            <div class="layui-input-block">
+                <textarea  id="description" name="description" lay-verify="required"  placeholder="请输入描述" class="layui-textarea description"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button type="button" class="layui-btn submitForm" lay-filter="submitForm" id="submitForm" maxlength="100"  lay-submit style="float: right;">立即提交</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="seeSysValue" style="display: none">
+    <form class="layui-form form2">
+        <div class="layui-form-item" style="margin-top: 10px;">
+            <label class="layui-form-label">当前缓存值:</label>
+            <div class="layui-input-block" style="width: 635px">
+                <input type="text" name="sys_value" readonly class="layui-input">
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<div class="layui-elem-quote">
+    <div style="display: inline">
+        <a class="layui-btn" id="add">新增</a>
+        <a class="layui-btn" id="updateRedis">更新缓存</a>
+       <!-- <a class="layui-btn" id="asyncReferrer">同步特约人信息</a>-->
+    </div>
+    <div class="layui-input-inline" style="float: right;display: inline;margin-right: 150px;">
+        <button type="button" id="searchBtn" class="layui-btn">查询</button>
+    </div>
+    <div style="float: right;display: inline">
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <label class="layui-form-label">参数名：</label>
+                <div class="layui-input-inline">
+                    <input type="text"  id="parameterKey" autocomplete="off"  class="layui-input">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <table id="sys_parameter" lay-filter="sysParameter"/>
+
+</div>
+<script type="text/javascript" src="../../static/plugin/layui/layui.js"></script>
+<script type="text/javascript" src="../../static/js/sys/sysParameter.js"></script>
+<script type="text/javascript" src="../../static/plugin/zTree_v3/js/jquery-1.4.4.min.js"></script>
+</body>
+</html>

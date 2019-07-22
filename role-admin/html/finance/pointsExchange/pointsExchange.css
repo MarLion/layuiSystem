@@ -1,0 +1,7 @@
+/*查询条件*/
+.points-ex-condition-item{display: flex;flex-direction: row;justify-content: flex-start;}
+.points-ex-condition-item>div{width: 640px;}
+.points-ex-s{display: flex;flex-direction: row;justify-content: space-between;}
+/*列表*/
+
+

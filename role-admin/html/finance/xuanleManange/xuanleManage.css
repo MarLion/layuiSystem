@@ -1,0 +1,10 @@
+.xl-manage-condition-item{display: flex;flex-direction: row;justify-content: flex-start;}
+.xuanle-tab iframe{width: 100%;border: none;background-color: #f0f0f0;vertical-align:bottom;}
+/*修改layui tab样式*/
+.layui-tab-content{padding: 0;}
+.layui-tab-title li{width: 120px;height: 56px;line-height: 56px;border-top: 2px solid rgba(247,247,247,1);}
+.layui-tab-title .layui-this{color: rgba(30,135,240,1);border-top: 2px solid rgba(30,135,240,1);}
+.layui-tab-card>.layui-tab-title{background:rgba(247,247,247,1);}
+.layui-tab-title{height: 58px;border-bottom: none;}
+.layui-tab-card{border: none;box-shadow:none;}
+.layui-tab-title .layui-this:after{height: 30px;top:0;bottom: 0;margin: auto;}

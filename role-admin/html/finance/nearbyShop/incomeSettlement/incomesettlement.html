@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <title>收益结算</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../../../../static/css/common.css" media="all"/>
+    <link rel="stylesheet" href="../../../../static/plugin/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="../../public/public.css"/>
+    <link rel="stylesheet" href="../nearbyShop.css"/>
+</head>
+<body>
+<div class="finance-condition" style="margin-top: 0;">
+    <form class="layui-form">
+        <div class="nearby-shop-condition-item">
+            <div class="layui-form-item">
+                <label class="layui-form-label">创建时间：</label>
+                <div class="layui-input-inline" style="width: 242px;">
+                    <input type="text" class="layui-input" id="timeStart">
+                </div>
+                <div class="layui-input-inline" style="width: 16px;margin: 0 15px 0 5px;line-height: 32px;text-align: center">一</div>
+                <div class="layui-input-inline" style="width: 242px;">
+                    <input type="text" class="layui-input" id="timeEnd">
+                </div>
+            </div>
+            <div class="layui-form-item" style="margin-left: 20px;">
+                <label class="layui-form-label">玄乐账号：</label>
+                <div class="layui-input-inline">
+                    <input type="text" id="loginName" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item" style="margin-left: 20px;">
+                <label class="layui-form-label">订单编号：</label>
+                <div class="layui-input-inline">
+                    <input type="text" id="orderNo" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="nearby-shop-condition-item">
+            <div class="layui-form-item">
+                <label class="layui-form-label">到账时间：</label>
+                <div class="layui-input-inline" style="width: 242px;">
+                    <input type="text" class="layui-input" id="arrideTimeStart">
+                </div>
+                <div class="layui-input-inline" style="width: 16px;margin: 0 15px 0 5px;line-height: 32px;text-align: center">一</div>
+                <div class="layui-input-inline" style="width: 242px;">
+                    <input type="text" class="layui-input" id="arrideTimeEnd">
+                </div>
+            </div>
+            <div class="layui-form-item" style="margin-left: 20px;">
+                <label class="layui-form-label">收益状态：</label>
+                <div class="layui-input-inline">
+                    <select class="layui-select" id="status">
+                        <option value="">请选择收益状态</option>
+                        <option value="-1">已取消</option>
+                        <option value="0">未到账</option>
+                        <option value="1">已到账</option>
+                    </select>
+                </div>
+            </div>
+            <label class="layui-form-label" style="margin-left: 20px;">收益类型：</label>
+            <div class="layui-form-item layui-form-select downpanel-income" style="width: 250px;">
+                <div class="layui-select-title">
+                    <input type="text" placeholder="可多选" value="" id="shareType" name="shareType" class="layui-input layui-unselect orderTypes-income" readonly>
+                    <i class="layui-edge" style="margin-right: 10px;"></i>
+                </div>
+                <dl class="layui-anim layui-anim-upbit multSelects1-income">
+                    <dd><input  type="checkbox" name="typesIncome" title="平台管理费" value="0"  lay-skin="primary" ></dd>
+                    <dd><input  type="checkbox" name="typesIncome" title="推荐人服务费" value="1"  lay-skin="primary" ></dd>
+                    <dd><input  type="checkbox" name="typesIncome" title="特约人服务费" value="2"  lay-skin="primary" ></dd>
+                    <dd><input  type="checkbox" name="typesIncome" title="推广员服务费" value="3"  lay-skin="primary" ></dd>
+                </dl>
+            </div>
+        </div>
+        <div class="nearby-shop-condition-item">
+            <!--<div class="layui-form-item">
+                <label class="layui-form-label">完成时间：</label>
+                <div class="layui-input-inline" style="width: 242px;">
+                    <input type="text" class="layui-input" id="startSignTime">
+                </div>
+                <div class="layui-input-inline" style="width: 16px;margin: 0 15px 0 5px;line-height: 32px;text-align: center">一</div>
+                <div class="layui-input-inline" style="width: 242px;">
+                    <input type="text" class="layui-input" id="endSignTime">
+                </div>
+            </div>-->
+            <div class="layui-form-item">
+                <label class="layui-form-label">店铺名称：</label>
+                <div class="layui-input-inline">
+                    <input type="text" id="shop_name" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="ml20">
+                <button type="button" class="layui-btn layui-btn-normal" id="checkIncome">查询</button>
+                <button type="button" class="layui-btn layui-btn-primary" id="resetIncome">重置</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="finance-list mt20">
+    <div>
+        <button type="button" class="layui-btn layui-btn-normal" id="incomeExcel">批量导出</button>
+       <!-- <button type="button" class="layui-btn layui-btn-normal" id="settleExcel">收益导出</button>-->
+    </div>
+    <table id="income" lay-filter="icModel" class="mt20"></table>
+</div>
+<script src="../../../../static/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../../../static/plugin/setToken.js"></script>
+<script type="text/javascript" src="../../../../static/plugin/layui/layui.js"></script>
+<script src="../../../../static/js/config.js"></script>
+<script src="incomesettlement.js"></script>
+</body>
+</html>

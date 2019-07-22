@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>玄乐管理后台登录</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="static/plugin/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="static/css/login.css" />
+	</head>
+	<body class="beg-login-bg">
+		<div class="beg-login-box">
+			<header>
+				<h1>玄乐平台管理后台</h1>
+			</header>
+			<div class="beg-login-main">
+				<form  class="layui-form" method="post" onsubmit="return false">
+					<div class="layui-form-item">
+						<label class="beg-login-icon">
+                        <i class="layui-icon">&#xe612;</i>
+                    </label>
+						<input type="text" name="username" id="username" required lay-verify="required" autocomplete="off" placeholder="这里输入登录名" class="layui-input">
+					</div>
+					<div class="layui-form-item">
+						<label class="beg-login-icon">
+                        <i class="layui-icon">&#xe642;</i>
+                    </label>
+						<input type="password" name="password" required lay-verify="required" autocomplete="off" placeholder="这里输入密码" class="layui-input">
+					</div>
+
+					<!-- 信息提示区域  style="color:red"-->
+					<div class="kit-login-row">
+						<span id="msgContainer" ></span>
+					</div>
+
+					<div class="layui-form-item">
+						<div class="beg-pull-left beg-login-remember">
+							<!--<label>记住帐号？</label>
+							<input type="checkbox" name="rememberMe" value="true" lay-skin="switch" checked title="记住帐号">-->
+							<input type="checkbox" name="rememberMe" id="rememberMe" title="记住帐号？" checked>
+						</div>
+							<div class="beg-pull-right">
+							<button class="layui-btn layui-btn-primary" lay-submit lay-filter="login">
+                            <i class="layui-icon">&#xe650;</i> 登录
+                        </button>
+						</div>
+						<div class="beg-clear"></div>
+					</div>
+				</form>
+			</div>
+			<footer>
+				<p>众为科技 © www.zhongwei-info.com</p>
+			</footer>
+		</div>
+		<script type="text/javascript" src="static/plugin/zTree_v3/js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="static/plugin/setToken.js"></script>
+		<script type="text/javascript" src="static/plugin/jQuery.md5.js"></script>
+		<script type="text/javascript" src="static/plugin/layui/layui.js"></script>
+		<!--<script type="text/javascript" src="static\js\config.js"></script>-->
+		<script>
+			layui.config({
+			    version: true //一般用于更新模块缓存，默认不开启。设为true即让浏览器不缓存。也可以设为一个固定的值，如：201610
+			    , debug: false //用于开启调试模式，默认false，如果设为true，则JS模块的节点会保留在页面
+			    , base: 'static/js/' //设定扩展的Layui模块的所在目录，一般用于外部模块扩展
+			}).use(['layer', 'form','base'], function() {
+				var layer = layui.layer,
+				// $ = layui.jquery,
+				form = layui.form,
+				base=layui.base;
+                if (window.localStorage.getItem('username') != null && window.localStorage.getItem('username') != '') {
+                    $("#username").val(window.localStorage.getItem('username'))
+                }
+                form.on('submit(login)',function (data) {
+                    // console.log(data.field.username);
+                    var check = document.getElementById("rememberMe").checked;
+                    if (check) {
+                        window.localStorage.setItem('username',data.field.username);
+                    } else {
+                        window.localStorage.removeItem('username');
+                    }
+                    $("#msgContainer").html("系统登陆中,请稍后......");
+                    $.ajax({
+                        type:'post',
+                        async:true,
+                        dataType:'json',
+                        url:base.apiUrl() + '/open/app/login',
+                        data:{
+                            username:data.field.username,
+                            password:$.md5(data.field.password)
+                        },
+                        success:function (res) {
+							if (res.code == 200) {
+								window.sessionStorage.setItem('sessionid',res.data.sessionId);
+                                window.sessionStorage.setItem('userName',res.data.username);
+                                window.sessionStorage.setItem('userId',res.data.userId);
+                                setCookie("depts",res.data.depts);
+                                //设置登录用户的级别
+								setCookie("roleLevel",res.data.roleLevel);
+								window.location.href = 'index.html'
+							} else {
+                                layer.msg(res.msg);
+                                $("#msgContainer").html("");
+							}
+                        },
+                        error:function (error) {
+                            console.log(error);
+                            layer.msg('登录出错！');
+                            $("#msgContainer").html("");
+                        }
+                    });
+                    return false;
+                })
+			});
+	</script>
+	</body>
+</html>

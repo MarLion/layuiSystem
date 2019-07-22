@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <title>经营总览</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../../../static/css/common.css" media="all"/>
+    <link rel="stylesheet" href="../../../static/plugin/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="../public/public.css"/>
+    <link rel="stylesheet" href="businessOverview.css"/>
+</head>
+<body>
+<div class="finance-container">
+    <div class="finance-bread fs16">
+        <span>财务管理</span>
+        <span class="ml13">＞</span>
+        <span class="ml13">经营总览</span>
+    </div>
+    <div class="finance-condition">
+        <form class="layui-form">
+            <div class="check-ac-condition-item">
+                <!--div filter设置为 company-div area-div shop-div;select id设置为 companySelect areaSelect shopSelect, filter设置为company-select area-select shop-select 可直接调用base.operateArea方法来生成所在区域的联动选择-->
+                <!--也可以自定义filter和id 按照('companySelect','company-div','company-select','areaSelect','area-div','area-select','shopSelect','shop-div','shop-select')的顺序传参-->
+                <div class="layui-form-item">
+                    <label class="layui-form-label">所&nbsp;&nbsp;在&nbsp;&nbsp;区&nbsp;&nbsp;域：</label>
+                    <div class="layui-input-inline layui-form" lay-filter="company-div">
+                        <select class="layui-select" id="companySelect" lay-filter="company-select">
+                        </select>
+                    </div>
+                    <div class="layui-input-inline layui-form" lay-filter="area-div">
+                        <select class="layui-select" id="areaSelect" lay-filter="area-select">
+                        </select>
+                    </div>
+                    <div class="layui-input-inline layui-form" lay-filter="shop-div">
+                        <select class="layui-select" id="shopSelect" lay-filter="shop-select">
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">选&nbsp;&nbsp;择&nbsp;&nbsp;时&nbsp;&nbsp;间：</label>
+                    <div class="layui-input-inline" >
+                        <input type="text" class="layui-input" id="timeStart">
+                    </div>
+                    <div class="layui-input-inline" style="width: 16px;margin: 0 15px 0 5px;line-height: 32px;text-align: center">一</div>
+                    <div class="layui-input-inline" >
+                        <input type="text" class="layui-input" id="timeEnd">
+                    </div>
+                </div>
+                <div style="margin-left: 20px">
+                    <button type="button" class="layui-btn layui-btn-normal" id="checkAccounts">查询</button>
+                    <button type="button" class="layui-btn layui-btn-primary" id="reset">重置</button>
+                    <button type="button" class="layui-btn layui-btn-normal" id="lotsExport" >批量导出</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="finance-list mt20">
+        <table id="business_overview" lay-filter="businessOverviewModel" ></table>
+        <br><p class="content-to-tit fs18" id="searchTitle"></p>
+    </div>
+
+</div>
+
+<script src="../../../static/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../../static/plugin/layui/layui.js"></script>
+<script src="../../../static/js/config.js"></script>
+<script src="../../../static/js/saveFile.js"></script>
+<script src="../../../static/js/xlsx.full.min.js"></script>
+<script src="businessOverview.js"></script>
+
+</body>
+</html>

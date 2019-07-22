@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <title>陇上购物</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../../../static/css/common.css" media="all"/>
+    <link rel="stylesheet" href="../../../static/plugin/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="public/public.css"/>
+    <link rel="stylesheet" href="overView.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.2.1/echarts.min.js"></script>
+    <style>
+        .staff-div:hover{cursor: pointer;}
+    </style>
+</head>
+<body>
+<div class="finance-container">
+    <div class="finance-bread fs16">
+        <span>财务管理</span>
+        <span class="ml13">＞</span>
+        <span class="ml13">信息总览</span>
+    </div>
+    <div class="flex-row justify-between mt30" style="background-color: #ffffff;padding: 20px 30px 0;">
+        <div>
+            <span>选择日期：</span>
+            <button type="button" class="layui-btn layui-btn-normal" id="prev_day">前一天</button>
+            <div class="layui-input-inline ml15">
+                <input type="text" class="layui-input" id="chooseTime">
+            </div>
+            <button type="button" class="layui-btn layui-btn-normal ml15" id="next_day">后一天</button>
+        </div>
+        <button type="button" class="layui-btn layui-btn-normal">说明</button>
+    </div>
+    <div class="finance-condition" style="margin-top: 0;">
+        <div class="flex-row justify-between content-one">
+            <div class="back-ground">
+                <p class="content-one-tit fs22" id="xuanlebiTotal">集团玄乐币总额</p>
+                <p class="total-num" id="groupJxbTotal">0.00</p>
+                <div id="contentOne" style="width: 100%;height: 350px;"></div>
+            </div>
+            <div class="back-ground">
+                <p class="content-one-tit fs22" id="pointanNum">集团积分总额</p>
+                <p class="total-num" id="groupIntegralTotal">0</p>
+                <div class="flex-row justify-between" id="platPoints" style="padding: 0 38px;margin-top: 42px;">
+                    <div>
+                        <p class="fs16 col-t">当日增长</p>
+                        <p class="mt20 fs20 col-n" id="integralAdd">0</p>
+                        <p style="margin-top: 20px;"><img src="icon/point_grow.png"/></p>
+                        <div class="flex-col justify-between mt30 point-t">
+                            <div class="plat-points" data-title="平台积分增长情况" data-src="html/finance/overView/platPointsAdd/platPointsAdd.html">
+                                <div class="flex-row justify-between">
+                                    <p><span><img src="icon/icon_1.png"/></span><span style="margin-left: 13px;">平台增长</span></p>
+                                    <p class="flex-row justify-start" style="width: 100px;"><span><img src="" class="plat-int-icon"/></span><span id="platformIntegralRise" class="ml15">0%</span></p>
+                                </div>
+                                <p class="mt10" id="platformIntegralAdd" style="padding-left: 33px;">0</p>
+                            </div>
+                            <div class="mt30 plat-points" data-title="游戏积分增长情况" data-src="html/finance/overView/gamePointsAdd/gamePointsAdd.html">
+                                <div class="flex-row justify-between">
+                                    <p><span><img src="icon/icon_1.png"/></span><span style="margin-left: 13px;">游戏增长</span></p>
+                                    <p class="flex-row justify-start" style="width: 100px;"><span><img src="" class="game-int-icon"/></span><span id="gameIntegralRise" class="ml15">-0%</span></p>
+                                </div>
+                                <p class="mt10" id="gameIntegralAdd" style="padding-left: 33px;">-0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="fs16 col-t">当日消耗</p>
+                        <p class="mt20 fs20 col-n" id="integralExpend">0</p>
+                        <p style="margin-top: 20px;"><img src="icon/point_use.png"/></p>
+                        <div class="flex-col justify-between point-t" style="margin-top: 41px;">
+                            <div class="plat-points" data-title="平台积分消耗情况" data-src="html/finance/overView/platPointsDeplete/platPointsDeplete.html">
+                                <div class="flex-row justify-between">
+                                    <p><span><img src="icon/icon_2.png"/></span><span style="margin-left: 13px;">平台消耗</span></p>
+                                    <p class="flex-row justify-start" style="width: 100px;"><span><img src="" class="plat-int-exp"/></span><span id="platformIntegralExpendRise" class="ml15">0%</span></p>
+                                </div>
+                                <p class="mt10" id="platformIntegralExpend" style="padding-left: 33px;">0</p>
+                            </div>
+                            <div class="mt30 plat-points" data-title="游戏积分消耗情况" data-src="html/finance/overView/gamePointsDeplete/gamePointsDeplete.html">
+                                <div class="flex-row justify-between">
+                                    <p><span><img src="icon/icon_2.png"/></span><span style="margin-left: 13px;">游戏消耗</span></p>
+                                    <p class="flex-row justify-start" style="width: 100px;"><span><img src="" class="game-int-exp"/></span><span id="gameIntegralExpendRise" class="ml15">-0%</span></p>
+                                </div>
+                                <p class="mt10" id="gameIntegralExpend" style="padding-left: 33px;">-0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex-row justify-between content-two mt30">
+            <div class="back-ground pos-re manage-des" id="manageOver">
+                <p class="fs16" id="bussinessNum">集团经营情况概要</p>
+                <div class="manage-total manage-over" data-title="集团财务总览列表" data-src="html/finance/overView/managementView/managementView.html">
+                    <p class="flex-col justify-start">
+                        <span class="fs30" style="color: #3D4D65" id="marketingTotal">0.00</span>
+                        <span style="color: #54657E;">营业收入总额</span>
+                    </p>
+                    <div class="flex-row justify-between" style="margin-top: 43px;">
+                        <div style="line-height: 80px;"><span class="mt10"><span><img src="" class="market-ing-icon"/></span><span class="ml15" id="marketingRise">0%</span></span></div>
+                        <div><img src="icon/icon_5.png" id="totalImg"/></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="back-ground pos-re">
+                <p class="content-to-tit fs18" id="xuanlebiNum">平台玄乐币情况</p>
+                <div class="xuanle-bi-content" id="platXuanle">
+                    <div class="flex-row justify-between">
+                        <div class="flex-row justify-between plat-xuanle" data-title="积分兑换情况" data-src="html/finance/overView/pointsExchange/pointsExchange.html">
+                            <p>
+                                <span class="col-b">积分兑换</span>
+                                <span class="ml20" id="serviceTotal">0.00</span>
+                            </p>
+                            <p class="flex-row justify-start" style="width: 100px;">
+                                <span><img src="" class="points-exchange-icon"/></span>
+                                <span class="ml15" id="serviceRise">0%</span>
+                            </p>
+                        </div>
+                        <div class="flex-row justify-between plat-xuanle" data-title="营养指导销售额" data-src="html/finance/overView/nutritionGuide/nutritionGuide.html">
+                            <p>
+                                <span class="col-b">营养指导</span>
+                                <span class=ml20 id="yyZdTotal">0.00</span>
+                            </p>
+                            <p class="flex-row justify-start" style="width: 100px;">
+                                <span><img src="" class="nut-guide-icon"/></span>
+                                <span class="ml15" id="yyZdRise">0%</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex-row justify-between mt10" >
+                        <div class="flex-row justify-between plat-xuanle" data-title="垄上扶贫销售额" data-src="html/finance/overView/lsShoppingSale/lsShoppingSale.html">
+                            <p>
+                                <span class="col-b">垄上扶贫</span>
+                                <span class="ml20" id="groupBuyTotal0">0.00</span>
+                            </p>
+                            <p class="flex-row justify-start" style="width: 100px;">
+                                <span><img src="" class="ls-shopping-icon"/></span>
+                                <span class="ml15" id="groupBuyRise0">0%</span>
+                            </p>
+                        </div>
+                        <div class="flex-row justify-between plat-xuanle" data-title="健康医疗销售额" data-src="html/finance/overView/healthYlSale/healthYlSale.html">
+                            <p>
+                                <span class="col-b">健康医疗</span>
+                                <span class="ml20" id="healthYlTotal">0.00</span>
+                            </p>
+                            <p class="flex-row justify-start" style="width: 100px;">
+                                <span><img src="" class="health-medice-icon"/></span>
+                                <span class="ml15" id="healthYlRise">0%</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex-row justify-between mt10">
+                        <div class="flex-row justify-between plat-xuanle" data-title="专享商城销售额" data-src="html/finance/overView/vipMarket/vipMarket.html">
+                            <p>
+                                <span class="col-b">专享商城</span>
+                                <span class="ml20" id="groupBuyTotal1">0.00</span>
+                            </p>
+                            <p class="flex-row justify-start" style="width: 100px;">
+                                <span><img src="" class="vip-market-icon"/></span>
+                                <span class="ml15" id="groupBuyRise1">0%</span>
+                            </p>
+                        </div>
+                        <div class="flex-row justify-between plat-xuanle" data-title="相亲交友销售额" data-src="html/finance/overView/blindDate/hnSale.html">
+                            <p>
+                                <span class="col-b">相亲交友</span>
+                                <span class="ml20" id="hnTotal">0.00</span>
+                            </p>
+                            <p class="flex-row justify-start" style="width: 100px;">
+                                <span><img src="" class="blind-date-icon"/></span>
+                                <span class="ml15" id="hnRise">0%</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex-row justify-between mt10">
+                        <div class="flex-row justify-between plat-xuanle" data-title="保健产品销售额" data-src="html/finance/overView/healthProduct/healthProduct.html">
+                            <p>
+                                <span class="col-b">保健产品</span>
+                                <span class="ml20" id="healthTotal">0.00</span>
+                            </p>
+                            <p class="flex-row justify-start" style="width: 100px;">
+                                <span><img src="" class="health-product-icon"/></span>
+                                <span class="ml15" id="healthRise">0%</span>
+                            </p>
+                        </div>
+                        <div class="flex-row justify-between plat-xuanle" data-title="直播销售额" data-src="html/finance/overView/liveManage/liveSale.html">
+                            <p>
+                                <span class="col-b">直播管理</span>
+                                <span class="ml20" id="liveTotal">0.00</span>
+                            </p>
+                            <p class="flex-row justify-start" style="width: 100px;">
+                                <span><img src="" class="live-manage-icon"/></span>
+                                <span class="ml15" id="liveRise">0%</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex-row justify-between mt10">
+                        <div class="flex-row justify-between plat-xuanle" data-title="全球代购销售额" data-src="html/finance/overView/globalShopSale/globalShopSale.html">
+                            <p>
+                                <span class="col-b">全球代购</span>
+                                <span class="ml20" id="shopTotal">0.00</span>
+                            </p>
+                            <p class="flex-row justify-start" style="width: 100px;">
+                                <span><img src="" class="nearby-shop-icon"/></span>
+                                <span class="ml15" id="shopRise">0%</span>
+                            </p>
+                        </div>
+                        <div class="flex-row justify-between plat-xuanle" data-title="附近小店情况" data-src="html/finance/overView/nearShopSale/nearShopSale.html">
+                            <p>
+                                <span class="col-b">附近小店</span>
+                                <span class="ml20" id="nearShopTotal">0.00</span>
+                            </p>
+                            <p class="flex-row justify-start" style="width: 100px;">
+                                <span><img src="" class="recharge-icon"/></span>
+                                <span class="ml15" id="nearShopRise">0%</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex-row justify-between mt10">
+                        <div class="flex-row justify-between plat-xuanle" data-title="集团充值情况" data-src="html/finance/overView/recharge/recharge.html">
+                            <p>
+                                <span class="col-b">充&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;值</span>
+                                <span class="ml20" id="rechargeTotal">0.00</span>
+                            </p>
+                            <p class="flex-row justify-start" style="width: 100px;">
+                                <span><img src="" class="recharge-icon"/></span>
+                                <span class="ml15" id="rechargeRise">0%</span>
+                            </p>
+                        </div>
+                        <div class="flex-row justify-between plat-xuanle" data-title="集团提现情况" data-src="html/finance/overView/cashOut/cashOut.html">
+                            <p>
+                                <span class="col-b">提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现</span>
+                                <span class="ml20" id="drawCashTotal">0.00</span>
+                            </p>
+                            <p class="flex-row justify-start" style="width: 100px;">
+                                <span><img src="" class="cash-out-icon"/></span>
+                                <span class="ml15" id="drawCashRise">0%</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-col justify-between">
+                <div class="back-ground pos-re" id="gameXuanle" style="padding-bottom: 10px;">
+                    <p class="content-to-tit fs18" id="gameXuanlebi">游戏玄乐币情况</p>
+                    <div class="flex-row justify-between game-point game-xuanle mt10"  data-title="游戏收益情况" data-src="html/finance/overView/xuanleGame/xuanleGame.html">
+                        <p>
+                            <span class="col-b">玄乐游戏</span>
+                            <span class="ml20" id="gameIncomeTotal">0.00</span>
+                        </p>
+                        <p class="flex-row justify-start" style="width: 80px;">
+                            <span><img src="" class="xuanle-game-icon"/></span>
+                            <span class="ml15" id="gameIncomeRise">0%</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="back-ground pos-re" id="xuanleManage" style="padding-bottom: 10px;">
+                    <p class="content-to-tit fs18" id="xuanleNum">玄乐币管理情况</p>
+                    <div class="flex-row justify-between game-point xuanle-manage mt10" data-title="玄乐1号转入情况" data-src="html/finance/overView/xuanleNumOneIn/xuanleNumOneIn.html">
+                        <p>
+                            <span class="col-b">玄乐1号转入</span>
+                            <span class="ml20" id="JjgJxbInTotal">0.00</span>
+                        </p>
+                        <p class="flex-row justify-start" style="width: 80px;">
+                            <span><img src="" class="xuanle-one-in-icon"/></span>
+                            <span class="ml15" id="JjgJxbInRise">0%</span>
+                        </p>
+                    </div>
+                    <div class="flex-row justify-between game-point mt20 xuanle-manage" data-title="玄乐1号转出情况" data-src="html/finance/overView/xuanleNumOneOut/xuanleNumOneOut.html">
+                        <p>
+                            <span class="col-b">玄乐1号转出</span>
+                            <span class="ml20" id="JjgJxbOutTotal">0.00</span>
+                        </p>
+                        <p class="flex-row justify-start" style="width: 80px;">
+                            <span><img src="" class="xuanle-one-out-icon"/></span>
+                            <span class="ml15" id="JjgJxbOutRise">0%</span>
+                        </p>
+                    </div>
+                    <div class="flex-row justify-between game-point mt20 xuanle-manage" data-title="玄乐专享转入情况" data-src="html/finance/overView/xuanleVipIn/xuanleVipIn.html">
+                        <p>
+                            <span class="col-b">玄乐专享转入</span>
+                            <span style="margin-left: 14px;" id="exclusiveProductInTotal">0.00</span>
+                        </p>
+                        <p class="flex-row justify-start" style="width: 80px;">
+                            <span><img src="" class="xuanle-vip-in-icon"/></span>
+                            <span class="ml15" id="exclusiveProductInRise">0%</span>
+                        </p>
+                    </div>
+                    <div class="flex-row justify-between game-point mt20 xuanle-manage" data-title="玄乐专享转出情况" data-src="html/finance/overView/xuanleVipOut/xuanleVipOut.html">
+                        <p>
+                            <span class="col-b">玄乐专享转出</span>
+                            <span style="margin-left: 14px;" id="exclusiveProductOutTotal">0.00</span>
+                        </p>
+                        <p class="flex-row justify-start" style="width: 80px;">
+                            <span><img src="" class="xuanle-vip-out-icon"/></span>
+                            <span class="ml15" id="exclusiveProductOutRise">0%</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex-row justify-between content-three mt30">
+            <div class="back-ground plat-num">
+                <p><span class="fs30" style="color: #3D4D65" id="memberNum">0</span><span style="color: #333333" id="memberName">平台总会员人数</span></p>
+                <div class="people-num" data-title="集团会员签到情况" data-src="html/finance/overView/peopleSignNum/peopleSignNum.html">
+                    <div class="flex-row justify-between">
+                        <p style="color: #54657E;width: 120px;">当日店内签到人数</p>
+                        <div class="layui-progress" style="width: 454px;margin-top: 7px;">
+                            <div class="layui-progress-bar layui-bg-1" lay-percent="30%"></div>
+                        </div>
+                        <p class="flex-row justify-end" style="width: 130px;">
+                            <span id="signNum">0</span>
+                            <span class="ml20"><img src="" class="sign-num-icon"/></span>
+                            <span class="ml15" id="signNumRise">0%</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="people-num" data-title="集团会员登录情况" data-src="html/finance/overView/peopleLoginNum/peopleLoginNum.html">
+                    <div class="flex-row justify-between">
+                        <p style="color: #54657E;width: 120px;">当日登录人数</p>
+                        <div class="layui-progress" style="width: 454px;margin-top: 7px;">
+                            <div class="layui-progress-bar layui-bg-2" lay-percent="40%"></div>
+                        </div>
+                        <p class="flex-row justify-end" style="width: 130px;">
+                            <span id="loginNum">0</span>
+                            <span class="ml20"><img src="" class="login-num-icon"/></span>
+                            <span class="ml15" id="loginNumRise">0%</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="people-num" data-title="集团新增会员情况" data-src="html/finance/overView/peopleVipAddNum/peopleVipAddNum.html">
+                    <div class="flex-row justify-between">
+                        <p style="color: #54657E;width: 120px;">当日新增会员人数</p>
+                        <div class="layui-progress" style="width: 454px;margin-top: 7px;">
+                            <div class="layui-progress-bar layui-bg-3" lay-percent="20%"></div>
+                        </div>
+                        <p class="flex-row justify-end" style="width: 130px;">
+                            <span id="addMemberNum">0</span>
+                            <span class="ml20"><img src="" class="add-vip-icon"/></span>
+                            <span class="ml15" id="addMemberNumRise">0%</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="people-num" data-title="集团新增设备情况" data-src="html/finance/overView/peopleEquiAddNum/peopleEquiAddNum.html">
+                    <div class="flex-row justify-between">
+                        <p style="color: #54657E;width: 120px;">当日新增设备数</p>
+                        <div class="layui-progress" style="width: 454px;margin-top: 7px;">
+                            <div class="layui-progress-bar layui-bg-4" lay-percent="10%"></div>
+                        </div>
+                        <p class="flex-row justify-end" style="width: 130px;">
+                            <span id="addEquiNum">0</span>
+                            <span class="ml20"><img src="" class="add-equi-icon"/></span>
+                            <span class="ml15" id="addEquiNumRise">0%</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="back-ground company-per staff-div">
+                <p style="color: #333333" class="fs16" id="personName"></p>
+                <p style="color: #3D4D65;margin-top: 17px" class="fs30" id="personNum" data-title="集团员工情况" data-src="html/finance/overView/staffCondition/staffCondition.html">0</p>
+                <div id="perContain" style="width: 100%;height: 200px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../../static/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../../static/plugin/layui/layui.js"></script>
+<script type="text/javascript" src="../../../static/plugin/setToken.js"></script>
+<script src="../../../static/js/config.js"></script>
+<script src="overHtml.js"></script>
+</body>
+</html>

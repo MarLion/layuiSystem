@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <title>集团财务总览列表</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../../../../../static/css/common.css" media="all"/>
+    <link rel="stylesheet" href="../../../../../static/plugin/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="../../public/public.css"/>
+</head>
+<body>
+<div class="finance-container">
+    <div class="finance-bread fs16">
+        <span>财务管理</span>
+        <span class="ml13">＞</span>
+        <span class="ml13">财务总览</span>
+        <span class="ml13">＞</span>
+        <span class="ml13">集团财务总览列表</span>
+        <span class="ml13">＞</span>
+        <span class="ml13">分公司财务总览列表</span>
+    </div>
+    <div class="finance-condition mt20 second-over-table">
+        <div class="flex-row justify-between">
+            <div>
+                <span>选择日期：</span>
+                <div class="layui-input-inline ml15">
+                    <input type="text" class="layui-input" id="chooseTime">
+                </div>
+                <button type="button" class="layui-btn layui-btn-normal ml15" id="check">查询</button>
+            </div>
+        </div>
+    </div>
+    <table id="subCompanyTotalOver" lay-filter="subCompanyTotalOver"></table>
+    <div class="finance-condition mt20" id="chartId">
+        <div class="flex-row justify-between">
+            <div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">选择日期：</label>
+                    <div class="layui-input-inline" style="width: 242px;">
+                        <input type="text" class="layui-input" id="startDate">
+                    </div>
+                    <div class="layui-input-inline" style="width: 16px;margin: 0 15px 0 5px;line-height: 32px;text-align: center">—</div>
+                    <div class="layui-input-inline" style="width: 242px;">
+                        <input type="text" class="layui-input" id="endDate">
+                    </div>
+                    <div class="layui-input-inline">
+                        <button type="button" class="layui-btn layui-btn-normal ml15" id="checkCharts">查询</button>
+                        <button type="button" class="layui-btn layui-btn-normal ml15" id="clearCheckCharts">重置</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center fs22 chart-title fw">营销收入统计</div>
+        <div id="mainChart" style="width: 100%;height: 500px;" class="mt20"></div>
+    </div>
+</div>
+<script src="../../../../../static/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../../../../static/plugin/layui/layui.js"></script>
+<script src="../../../../../static/js/config.js"></script>
+<script type="text/javascript" src="../../../../../static/plugin/setToken.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.2.1/echarts.min.js"></script>
+<script src="managementViewSubCompany.js"></script>
+</body>
+</html>

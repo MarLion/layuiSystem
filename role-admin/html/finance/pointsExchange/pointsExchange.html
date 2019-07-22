@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <title>积分兑换</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../../../static/css/common.css" media="all"/>
+    <link rel="stylesheet" href="../../../static/plugin/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="../public/public.css"/>
+    <link rel="stylesheet" href="pointsExchange.css"/>
+</head>
+<body>
+<div class="finance-container">
+    <div class="finance-bread fs16">
+        <span>财务管理</span>
+        <span class="ml13">＞</span>
+        <span class="ml13">积分兑换</span>
+    </div>
+    <div class="finance-condition">
+        <form class="layui-form">
+            <div class="points-ex-condition-item">
+                <div class="layui-form-item" style="width: auto;">
+                    <label class="layui-form-label">所在大区：</label>
+                    <div class="layui-input-inline layui-form" style="width: 250px;" lay-filter="district-div">
+                        <select class="layui-select" id="shopArea" lay-filter="shop-area">
+                            <option value="">请选择</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">所在区域：</label>
+                    <div class="layui-input-inline layui-form" lay-filter="company-div">
+                        <select class="layui-select" id="companySelect" lay-filter="company-select">
+                        </select>
+                    </div>
+                    <div class="layui-input-inline layui-form" lay-filter="area-div">
+                        <select class="layui-select" id="areaSelect" lay-filter="area-select">
+                        </select>
+                    </div>
+                    <div class="layui-input-inline layui-form" lay-filter="shop-div">
+                        <select class="layui-select" id="shopSelect" lay-filter="shop-select">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="points-ex-condition-item">
+                <div class="points-ex-s">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">订单类别：</label>
+                        <div class="layui-input-inline">
+                            <select class="layui-select" id="status">
+                                <option value="">请选择</option>
+                                <option value="0">玄乐订单</option>
+                                <option value="1">KPI订单</option>
+                                <!--<option value="2">直播订单</option>-->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" style="margin-left: 20px;">是否有货：</label>
+                        <div class="layui-input-inline">
+                            <select class="layui-select" id="inStock">
+                                <option value="">请选择</option>
+                                <option value="0">有货</option>
+                                <option value="1">无货</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="points-ex-s">
+                    <div class="layui-form-item" style="margin-left: 20px;">
+                        <label class="layui-form-label">用户账号：</label>
+                        <div class="layui-input-inline">
+                            <input type="text" id="loginName" placeholder="请输入" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">销售账号：</label>
+                        <div class="layui-input-inline">
+                            <input type="text" id="seller" placeholder="KPI或玄乐账号" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="points-ex-condition-item">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">购买时间：</label>
+                    <div class="layui-input-inline" style="width: 242px;">
+                        <input type="text"  class="layui-input" id="byTimeStart">
+                    </div>
+                    <div class="layui-input-inline" style="width: 16px;margin: 0 15px 0 5px;line-height: 32px;text-align: center">一</div>
+                    <div class="layui-input-inline" style="width: 242px;">
+                        <input type="text" class="layui-input" id="buTimeEnd">
+                    </div>
+                </div>
+                <div class="layui-form-item" style="margin-left: 20px;">
+                    <label class="layui-form-label">出货时间：</label>
+                    <div class="layui-input-inline" style="width: 242px;">
+                        <input type="text" class="layui-input" id="exTimeStart">
+                    </div>
+                    <div class="layui-input-inline" style="width: 16px;margin: 0 15px 0 5px;line-height: 32px;text-align: center">一</div>
+                    <div class="layui-input-inline" style="width: 242px;">
+                        <input type="text" class="layui-input" id="exTimeEnd">
+                    </div>
+                </div>
+            </div>
+            <div class="points-ex-condition-item">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">完成时间：</label>
+                    <div class="layui-input-inline" style="width: 242px;">
+                        <input type="text" class="layui-input" id="finishTimeStart">
+                    </div>
+                    <div class="layui-input-inline" style="width: 16px;margin: 0 15px 0 5px;line-height: 32px;text-align: center">一</div>
+                    <div class="layui-input-inline" style="width: 242px;">
+                        <input type="text" class="layui-input" id="finishTimeEnd">
+                    </div>
+                </div>
+                <div style="margin-left: 20px;">
+                    <label class="layui-form-label">订单状态：</label>
+                    <div class="layui-form-item layui-form-select layui-input-inline downpanel" style="width: 250px;">
+                        <div class="layui-select-title">
+                            <input type="text" placeholder="可多选" value="" id="orderStatus" name="orderStatus" class="layui-input layui-unselect orderTypes" readonly>
+                            <i class="layui-edge" style="margin-right: 10px;"></i>
+                        </div>
+                        <dl class="layui-anim layui-anim-upbit multSelects1">
+                            <dd><input  type="checkbox" name="types" title="仓库未发货" value="0"  lay-skin="primary" ></dd>
+                            <dd><input  type="checkbox" name="types" title="销售人未接受" value="1"  lay-skin="primary" ></dd>
+                            <dd><input  type="checkbox" name="types" title="已取消" value="3"  lay-skin="primary" ></dd>
+                            <dd><input  type="checkbox" name="types" title="仓库已发货" value="4"  lay-skin="primary" ></dd>
+                            <dd><input  type="checkbox" name="types" title="门店已收货" value="5"  lay-skin="primary" ></dd>
+                            <dd><input  type="checkbox" name="types" title="交易完毕" value="6"  lay-skin="primary" ></dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button type="button" class="layui-btn layui-btn-normal" id="checkPoints">查询</button>
+                <button type="button" class="layui-btn layui-btn-primary" id="resetPoints">重置</button>
+            </div>
+        </form>
+    </div>
+    <div class="finance-list mt20">
+        <div>
+            <button type="button" class="layui-btn layui-btn-normal" id="pointExports">批量导出</button>
+            <button type="button" class="layui-btn layui-btn-normal" id="ponitExportsByShop">门店导出</button>
+            <button type="button" class="layui-btn layui-btn-normal" id="ponitExportsByGoodsSaleNum">商品导出(数量)</button>
+            <button type="button" class="layui-btn layui-btn-normal" id="ponitExportsByGoodsMoney">商品导出(金额)</button>
+        </div>
+        <table id="points" lay-filter="pointsModel" class="mt20"></table>
+    </div>
+</div>
+<div class="spinner-container">
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+        <p style="color:#ffffff;">导出中...</p>
+    </div>
+</div>
+<script src="../../../static/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../../static/plugin/layui/layui.js"></script>
+<script src="../../../static/js/config.js"></script>
+<script src="pointsExchange.js"></script>
+</body>
+</html>

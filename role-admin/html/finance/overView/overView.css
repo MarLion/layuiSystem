@@ -1,0 +1,40 @@
+.back-ground{background:#ffffff;box-shadow:0 0 15px 0 rgba(95,95,95,0.2);border-radius:10px;}
+.content-one>div{width: 49%;height: 520px;}
+.content-two>div:first-child{width: 23.5%;height: 263px;}
+.content-two>div:nth-child(2){width: 49%;height: 313px;}
+.content-two>div:last-child{width: 23.5%;height: 313px;}
+.content-three>div:first-child{width: 59%;height: 310px;}
+.content-three>div:last-child{width: 39%;height: 300px;}
+.content-one-tit{font-weight:400;color:rgba(34,34,34,1);padding:27px 0 21px 39px;border-bottom: 1px solid rgba(234,234,234,1);font-size: 22px;}
+.total-num{padding: 37px 0 0 39px;font-weight:400;color:rgba(80,87,106,1);font-size: 36px;}
+.col-t{color:rgba(120,120,120,1);}
+.col-n{color: rgba(51,51,51,1);}
+.point-t>div:hover{cursor: pointer;background-color: #E8F0F8;}
+.content-to-tit{padding: 19px 0 12px 39px;border-bottom: 1px solid rgba(234,234,234,1);}
+.xuanle-bi-content{padding: 20px 39px 0 39px;}
+.xuanle-bi-content>div>div{width: 46%;}
+.xuanle-bi-content>div>div:hover{cursor: pointer;background-color: #E8F0F8;}
+.col-g{color:#19BB4C;}
+.col-r{color: #FF1B1B;}
+.col-b{color: #3AA1FF;}
+.point_1{left: 0;right: 0;bottom:0;margin: auto;}
+.point_2{left: 0;right: 0;bottom: 0;margin: auto;}
+.point_3{left: 0;right: 0;bottom: 28px;margin: auto;}
+.game-point{padding: 0 15px 0 39px;}
+.game-point:hover{cursor: pointer;background-color: #E8F0F8;}
+.point_4{left: 0;right: 0;bottom:34px;margin: auto;width: 80%;}
+.manage-des{padding-top: 50px}
+.manage-des>p{color:#333333;padding: 0 39px;}
+.manage-total{margin-top: 42px;padding: 0 39px;}
+.manage-total:hover{cursor: pointer;background-color: #E8F0F8;}
+.plat-num{padding-top: 38px;}
+.plat-num>p{padding: 0 41px;}
+.plat-num>div{padding: 0 41px;margin-top: 25px;}
+.plat-num>div:hover{cursor: pointer;background-color: #E8F0F8;}
+.layui-bg-1{background-color: #FFC435!important;}
+.layui-bg-2{background-color: #F83D62!important;}
+.layui-bg-3{background-color: #25D7DD!important;}
+.layui-bg-4{background-color: #218CF8!important;}
+.company-per{padding-top: 48px;}
+.company-per>p{padding: 0 40px;}
+#personNum:hover{background-color: #E8F0F8;}

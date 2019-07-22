@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../static/plugin/zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <link rel="stylesheet" href="../../static/plugin/layui/css/layui.css" media="all"/>
+    <style>
+        .layui-input-block {
+            width: 300px;
+        }
+        /*设置文字居中显示*/
+        .layui-table-header tr th div{
+            text-align: center;
+        }
+        td{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="content" style="display: none">
+    <form class="layui-form form1" lay-filter="form">
+        <div class="layui-form-item" style="margin-top: 10px;">
+            <input type="hidden" name="id"/>
+            <label class="layui-form-label">资源来源:</label>
+            <div class="layui-input-block">
+                <input type="text" name="sourceName" lay-verify="" class="layui-input">
+            </div>
+        </div>
+        
+    </form>
+</div>
+
+<div class="layui-elem-quote">
+    <a class="layui-btn" id="add">新增</a>
+</div>
+<table id="info" lay-filter="news"/>
+<script type="text/javascript" src="../../static/plugin/zTree_v3/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../../static/plugin/zTree_v3/js/jquery.ztree.all.js"></script>
+<script type="text/javascript" src="../../static/plugin/layui/layui.js"></script>
+<script type="text/javascript" src="../../static/plugin/setToken.js"></script>
+<script type="text/javascript" src="../../static/js/sys/sysMenuSource.js"></script>
+</body>
+</html>
+
+
+
+
+
+

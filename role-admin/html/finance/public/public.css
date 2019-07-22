@@ -1,0 +1,27 @@
+.finance-container{background-color: #f0f0f0;padding: 20px 30px 80px 30px;}
+.finance-bread span:first-child{font-weight: bold;color:rgba(51,51,51,1);}
+.finance-bread span:last-child{font-weight: 400;color:rgba(40,40,52,1);}
+.finance-condition{background-color: #ffffff;margin-top: 22px;padding: 30px;border-radius: 4px;}
+.finance-list{background-color: #ffffff;padding: 24px 30px 30px 30px;border-radius: 4px;}
+.col-g{color:#19BB4C;}
+.col-r{color: #FF1B1B;}
+.col-b{color: #3AA1FF;}
+/*修改layui样式*/
+.layui-form-label{text-align: left;padding: 9px 0;width: 100px;}
+.layui-form-item .layui-input-inline{width: 170px;height: 32px;}
+.layui-input, .layui-select, .layui-textarea{height: 32px;}
+.layui-btn{height: 32px;line-height:32px;border-radius: 4px;}
+.layui-table-cell{height: 40px;line-height: 40px;}
+.layui-table tbody tr:hover, .layui-table thead tr, .layui-table-click, .layui-table-header, .layui-table-hover, .layui-table-mend, .layui-table-patch, .layui-table-tool, .layui-table-total, .layui-table-total tr, .layui-table[lay-even] tr:nth-child(even){background-color: rgba(247,247,247,0.9);}
+/*.layui-table-view .layui-table td, .layui-table-view .layui-table th{border: none;}*/
+.layui-laypage .layui-laypage-curr .layui-laypage-em{background-color: rgba(30,135,240,1);border-radius: 4px;}
+/*修改layui tab样式*/
+.layui-tab-content{padding: 0;}
+.layui-tab-title li{height: 56px;line-height: 56px;border-top: 2px solid rgba(247,247,247,1);padding: 0 15px;}
+.layui-tab-title .layui-this{color: rgba(30,135,240,1);border-top: 2px solid rgba(30,135,240,1);}
+.layui-tab-card>.layui-tab-title{background:rgba(247,247,247,1);}
+.layui-tab-title{height: 58px;border-bottom: none;}
+.layui-tab-card{border: none;box-shadow:none;}
+.layui-tab-title .layui-this:after{height: 30px;top:0;bottom: 0;margin: auto;content: none;}
+.layui-tab-item{background-color: #ffffff;}
+

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <title>专享商城</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../../../static/css/common.css" media="all"/>
+    <link rel="stylesheet" href="../../../static/plugin/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="../public/public.css"/>
+    <link rel="stylesheet" href="vipMarket.css"/>
+</head>
+<body>
+<div class="finance-container">
+    <div class="finance-bread fs16">
+        <span>财务管理</span>
+        <span class="ml13">＞</span>
+        <span class="ml13">专享商城</span>
+    </div>
+    <div class="finance-condition">
+        <form class="layui-form">
+            <div class="vip-market-condition-item">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">所在大区：</label>
+                    <div class="layui-input-inline layui-form" style="width: 250px;" lay-filter="district-div">
+                        <select class="layui-select" id="shopArea" lay-filter="shop-area">
+                            <option value="">请选择</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item" style="margin-left: 20px;">
+                    <label class="layui-form-label">所在区域：</label>
+                    <div class="layui-input-inline layui-form" lay-filter="company-div">
+                        <select class="layui-select" id="companySelect" lay-filter="company-select">
+                        </select>
+                    </div>
+                    <div class="layui-input-inline layui-form" lay-filter="area-div">
+                        <select class="layui-select" id="areaSelect" lay-filter="area-select">
+                        </select>
+                    </div>
+                    <div class="layui-input-inline layui-form" lay-filter="shop-div">
+                        <select class="layui-select" id="shopSelect" lay-filter="shop-select">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="vip-market-condition-item">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">订单编码：</label>
+                    <div class="layui-input-inline" style="width: 250px;">
+                        <input type="text" id="orderNo" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item" style="margin-left: 20px;">
+                    <label class="layui-form-label">购买时间：</label>
+                    <div class="layui-input-inline" style="width: 242px;">
+                        <input type="text" class="layui-input" id="buyTimeStart">
+                    </div>
+                    <div class="layui-input-inline" style="width: 16px;margin: 0 15px 0 5px;line-height: 32px;text-align: center">一</div>
+                    <div class="layui-input-inline" style="width: 242px;">
+                        <input type="text" class="layui-input" id="buyTimeEnd">
+                    </div>
+                </div>
+                <div class="layui-form-item" style="margin-left: 20px;">
+                    <label class="layui-form-label">商品编码：</label>
+                    <div class="layui-input-inline" style="width: 250px;">
+                        <input type="text" id="proCode" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+            </div>
+            <div class="vip-market-condition-item">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户账号：</label>
+                    <div class="layui-input-inline" style="width: 250px">
+                        <input type="text" id="consumeLg" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item" style="margin-left: 20px;">
+                    <label class="layui-form-label">发货时间：</label>
+                    <div class="layui-input-inline" style="width: 242px;">
+                        <input type="text" class="layui-input" id="exTimeStart">
+                    </div>
+                    <div class="layui-input-inline" style="width: 16px;margin: 0 15px 0 5px;line-height: 32px;text-align: center">一</div>
+                    <div class="layui-input-inline" style="width: 242px;">
+                        <input type="text" class="layui-input" id="exTimeEnd">
+                    </div>
+                </div>
+                <div class="layui-form-item" style="margin-left: 20px;">
+                    <label class="layui-form-label">商品名称：</label>
+                    <div class="layui-input-inline" style="width: 250px;">
+                        <input type="text" id="proName" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+            </div>
+            <div class="vip-market-condition-item">
+                <label class="layui-form-label">订单状态：</label>
+                <div class="layui-form-item layui-form-select downpanel" style="width: 250px;">
+                    <div class="layui-select-title">
+                        <input type="text" placeholder="可多选" value="" id="orderStatus" name="orderStatus" class="layui-input layui-unselect orderTypes" readonly>
+                        <i class="layui-edge" style="margin-right: 10px;"></i>
+                    </div>
+                    <dl class="layui-anim layui-anim-upbit multSelects1">
+                        <dd><input  type="checkbox" name="types" title="待收货" value="0"  lay-skin="primary" ></dd>
+                        <dd><input  type="checkbox" name="types" title="已收货" value="1"  lay-skin="primary" ></dd>
+                        <dd><input  type="checkbox" name="types" title="已取消" value="2"  lay-skin="primary" ></dd>
+                        <dd><input  type="checkbox" name="types" title="已删除（付款订单）" value="3"  lay-skin="primary" ></dd>
+                    </dl>
+                </div>
+                <div class="layui-form-item" style="margin-left: 30px;">
+                    <label class="layui-form-label">签收时间：</label>
+                    <div class="layui-input-inline" style="width: 242px;">
+                        <input type="text" class="layui-input" id="signTimeStart" readonly>
+                    </div>
+                    <div class="layui-input-inline" style="width: 16px;margin: 0 15px 0 5px;line-height: 32px;text-align: center">一</div>
+                    <div class="layui-input-inline" style="width: 242px;">
+                        <input type="text" class="layui-input" id="signTimeEnd" readonly>
+                    </div>
+                </div>
+                <label class="layui-form-label" style="margin-left: 20px;">物流状态：</label>
+                <div class="layui-form-item layui-form-select downpane2" style="width: 250px;">
+                    <div class="layui-select-title">
+                        <input type="text" placeholder="可多选" value="" id="wuStatus" name="wuStatus" class="layui-input layui-unselect wuTypes" readonly>
+                        <i class="layui-edge" style="margin-right: 10px;"></i>
+                    </div>
+                    <dl class="layui-anim layui-anim-upbit multSelects2">
+                        <dd><input  type="checkbox" name="wuType" title="未出货" value="0"  lay-skin="primary" ></dd>
+                        <dd><input  type="checkbox" name="wuType" title="已出货" value="1"  lay-skin="primary" ></dd>
+                        <dd><input  type="checkbox" name="wuType" title="已到店" value="2"  lay-skin="primary" ></dd>
+                        <dd><input  type="checkbox" name="wuType" title="已收货" value="3"  lay-skin="primary" ></dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="vip-market-condition-item">
+                <div>
+                    <button type="button" class="layui-btn layui-btn-normal" id="checkLs">查询</button>
+                    <button type="button" class="layui-btn layui-btn-primary" id="resetLs">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="finance-list mt20">
+        <div>
+            <button type="button" id="export" class="layui-btn layui-btn-normal">批量导出</button>
+            <button type="button" id="exportByShop" class="layui-btn layui-btn-normal">门店导出</button>
+            <button type="button" id="exportByProNum" class="layui-btn layui-btn-normal">商品导出(数量)</button>
+            <button type="button" id="exportByProSale" class="layui-btn layui-btn-normal">商品导出(金额)</button>
+        </div>
+        <table id="vip" lay-filter="vipModel" class="mt20"></table>
+    </div>
+</div>
+<script src="../../../static/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../../static/plugin/layui/layui.js"></script>
+<script src="../../../static/js/config.js"></script>
+<script src="vipMarket.js"></script>
+</body>
+</html>

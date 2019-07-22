@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <title>玄乐1号转入情况</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../../../../static/css/common.css" media="all"/>
+    <link rel="stylesheet" href="../../../../static/plugin/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="../public/public.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.2.1/echarts.min.js"></script>
+</head>
+<body>
+<div class="finance-container">
+    <div class="finance-bread fs16">
+        <span>财务管理</span>
+        <span class="ml13">＞</span>
+        <span class="ml13">财务总览</span>
+        <span class="ml13">＞</span>
+        <span class="ml13">玄乐1号转入情况</span>
+    </div>
+    <div class="finance-condition mt20 second-over-table">
+        <div class="flex-row justify-between">
+            <div>
+                <span>选择日期：</span>
+                <div class="layui-input-inline ml15">
+                    <input type="text" class="layui-input" id="chooseTime">
+                </div>
+                <button type="button" class="layui-btn layui-btn-normal ml15" id="check">查询</button>
+            </div>
+        </div>
+        <table border="1" cellspacing="0" class="mt20">
+            <tr>
+                <th>类别</th>
+                <th>玄乐1号转入总额</th>
+                <th>本周日平均金额</th>
+                <th>本月日平均金额</th>
+                <th>同比昨日增长</th>
+                <th>同比月平均增长</th>
+                <th>操作</th>
+            </tr>
+            <tr>
+                <td>玄乐1号转入</td>
+                <td id="daynum"></td>
+                <td id="weekMean"></td>
+                <td id="monthMean"></td>
+                <td >
+                    <p>
+                        <span class="ml20" id="day_Rise"></span>
+                        <span id="todaySaleImage"><img class="day-rise-icon"/></span>
+                        <span class="c" id="dayRise"></span>
+                    </p>
+                </td>
+                <td >
+                    <p>
+                        <span class="ml20" id="month_Rise"></span>
+                        <span id="monthMaleImage"><img class="month-rise-icon"/></span>
+                        <span class="" id="monthRise"></span>
+                    </p>
+                </td>
+                <td>
+                    <button type="button" class="layui-btn layui-btn-sm layui-btn-normal" id="goCompany">分公司情况</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="finance-condition mt20">
+        <div class="flex-row justify-between">
+            <div>
+                <span>选择日期：</span>
+                <div class="layui-input-inline ml15" style="width: 227px;">
+                    <input type="text" class="layui-input" id="chooseTimeRange">
+                </div>
+                <button type="button" class="layui-btn layui-btn-normal ml15" id="checkCharts">查询</button>
+            </div>
+        </div>
+        <div class="mt30" id="saleChart" style="width: 100%;height: 350px;"></div>
+    </div>
+    <div class="finance-condition mt20 second-thirty-sale">
+        <div>
+            <span class="sale-icon"></span>
+            <span class="ml10 fs16">三十天内玄乐1号转入总额情况</span>
+        </div>
+        <div class="swiper-container mt20">
+            <div class="swiper-wrapper"></div>
+        </div>
+    </div>
+</div>
+<script src="../../../../static/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../../../static/plugin/layui/layui.js"></script>
+<script src="../../../../static/js/config.js"></script>
+<script src="../../../../static/plugin/setToken.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+<script src="xuanleNumOneIn.js"></script>
+</body>
+</html>
+

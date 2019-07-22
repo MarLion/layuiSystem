@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <title>玄乐专享</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../../../../static/css/common.css" media="all"/>
+    <link rel="stylesheet" href="../../../../static/plugin/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="../../public/public.css"/>
+    <link rel="stylesheet" href="../xuanleManage.css"/>
+</head>
+<body>
+<div class="finance-condition" style="margin-top: 0;">
+    <form class="layui-form">
+        <div class="xl-manage-condition-item">
+            <div class="layui-form-item">
+                <label class="layui-form-label">所在大区：</label>
+                <div class="layui-input-inline layui-form" style="width: 250px; " lay-filter="district-div">
+                    <select class="layui-select" id="shopArea" lay-filter="shop-area">
+                        <option value="">请选择</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item" style="margin-left: 20px;">
+                <label class="layui-form-label">所在区域：</label>
+                <div class="layui-input-inline layui-form" lay-filter="company-div">
+                    <select class="layui-select" id="companySelect" lay-filter="company-select">
+                    </select>
+                </div>
+                <div class="layui-input-inline layui-form" lay-filter="area-div">
+                    <select class="layui-select" id="areaSelect" lay-filter="area-select">
+                    </select>
+                </div>
+                <div class="layui-input-inline layui-form" lay-filter="shop-div">
+                    <select class="layui-select" id="shopSelect" lay-filter="shop-select">
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item" style="margin-left: 20px;">
+                <label class="layui-form-label">用户账号：</label>
+                <div class="layui-input-inline">
+                    <input type="text" id="loginNameVip" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="xl-manage-condition-item">
+            <label class="layui-form-label">产品名称：</label>
+            <div class="layui-form-item layui-form-select downpanel-vip" style="width: 250px;">
+                <div class="layui-select-title">
+                    <input type="text" placeholder="可多选" value="" id="orderVip" name="orderVip" class="layui-input layui-unselect orderTypes-vip">
+                    <i class="layui-edge" style="margin-right: 10px;"></i>
+
+                </div>
+                <dl class="layui-anim layui-anim-upbit multSelects1-vip">
+                    <dd><input  type="checkbox" name="typesEightVip" title="玄乐专享" value="5"  lay-skin="primary" ></dd>
+                </dl>
+            </div>
+            <div class="layui-form-item" style="margin-left: 30px;">
+                <label class="layui-form-label">购买时间：</label>
+                <div class="layui-input-inline" style="width: 242px;">
+                    <input type="text" class="layui-input" id="buyTimeStartVip">
+                </div>
+                <div class="layui-input-inline" style="width: 16px;margin: 0 15px 0 5px;line-height: 32px;text-align: center">一</div>
+                <div class="layui-input-inline" style="width: 242px;">
+                    <input type="text" class="layui-input" id="buyTimeEndVip">
+                </div>
+            </div>
+            <div class="layui-form-item" style="margin-left: 20px;">
+                <label class="layui-form-label">销售账号：</label>
+                <div class="layui-input-inline">
+                    <input type="text" id="saleLoginNameVip" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="xl-manage-condition-item">
+            <label class="layui-form-label">订单状态：</label>
+            <div class="layui-form-item layui-form-select downpanel-vip-status" style="width: 250px;">
+                <div class="layui-select-title">
+                    <input type="text" placeholder="可多选" value="" id="orderVipStatus" name="orderVipStatus" class="layui-input layui-unselect orderTypes-vip-status" readonly>
+                    <i class="layui-edge" style="margin-right: 10px;"></i>
+                </div>
+                <dl class="layui-anim layui-anim-upbit multSelects1-vip-status">
+                    <dd><input  type="checkbox" name="typesVipStatus" title="未到期" value="0"  lay-skin="primary" ></dd>
+                    <dd><input  type="checkbox" name="typesVipStatus" title="到期" value="1"  lay-skin="primary" ></dd>
+                    <dd><input  type="checkbox" name="typesVipStatus" title="提取" value="2"  lay-skin="primary" ></dd>
+                    <dd><input  type="checkbox" name="typesVipStatus" title="已续期" value="3"  lay-skin="primary" ></dd>
+                </dl>
+            </div>
+            <div class="layui-form-item" style="margin-left: 30px;">
+                <label class="layui-form-label">到期时间：</label>
+                <div class="layui-input-inline" style="width: 242px;">
+                    <input type="text" class="layui-input" id="expireTimeStartVip">
+                </div>
+                <div class="layui-input-inline" style="width: 16px;margin: 0 15px 0 5px;line-height: 32px;text-align: center">一</div>
+                <div class="layui-input-inline" style="width: 242px;">
+                    <input type="text" class="layui-input" id="expireTimeEndVip">
+                </div>
+            </div>
+            <div class="layui-form-item" style="margin-left: 20px">
+                <label class="layui-form-label">赎回类型：</label>
+                <div class="layui-input-inline">
+                    <select class="layui-select" id="redeemTypeVip">
+                        <option value="">请选择</option>
+                        <option value="1">到期赎回</option>
+                        <option value="2">未到期赎回</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button type="button" class="layui-btn layui-btn-normal" id="checkVip">查询</button>
+            <button type="reset" class="layui-btn layui-btn-primary" id="resetVip">重置</button>
+        </div>
+    </form>
+</div>
+<div class="finance-list mt20">
+    <div>
+        <button type="button" class="layui-btn layui-btn-normal" id="pldcV">批量导出</button>
+        <!--<button type="button" class="layui-btn layui-btn-normal">门店导出</button>-->
+    </div>
+    <table id="numVip" lay-filter="nvModel" class="mt20"></table>
+</div>
+<script src="../../../../static/js/jquery-1.11.3.min.js"></script>
+<script src="../../../../static/js/saveFile.js"></script>
+<script src="../../../../static/js/xlsx.full.min.js"></script>
+<script type="text/javascript" src="../../../../static/plugin/layui/layui.js"></script>
+<script src="../../../../static/js/config.js"></script>
+<script src="xuanleVip.js"></script>
+</body>
+</html>

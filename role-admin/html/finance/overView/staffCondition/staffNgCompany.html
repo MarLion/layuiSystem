@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <title>区域人员情况</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../../../../static/css/common.css" media="all"/>
+    <link rel="stylesheet" href="../../../../static/plugin/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="../public/public.css"/>
+</head>
+<body>
+<div class="finance-container">
+    <div class="finance-condition">
+        <table id="staffTable" lay-filter="staffTableModel"></table>
+    </div>
+</div>
+<script src="../../../../static/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../../../static/plugin/layui/layui.js"></script>
+<script src="staffNgCompany.js"></script>
+
+<div class="kit-page kit-page-nopadding">
+    <div class="kit-page-header kit-page-header2"></div>
+    <div class="kit-page-center kit-page-center3">
+        <div style="clear:both;"></div>
+        <div class="kpc-c-account">
+            <table class="layui-hide" id="test" lay-filter="demo"></table>
+        </div>
+        <script type="text/html" id="indexTpl">
+            {{d.LAY_TABLE_INDEX+1}}
+        </script>
+        <script type="text/html" id="barDemo">
+            <button class="layui-btn layui-btn-xs layui-btn-normal" lay-event="group_sale_account">门店员工情况</button>
+        </script>
+    </div>
+    <div class="kit-page-footer"></div>
+</div>
+
+</body>
+</html>
